@@ -14,7 +14,7 @@
         choices["rock"] = 0;
         choices["paper"] = 1;
         choices["scissors"] = 2;
-        
+        var numWins = 0;
         // Game main loop
         alert("Let's play Rock Paper Scissors!");
         do{
@@ -35,13 +35,15 @@
 
             // Check who won
             if (choices[userChoice]-compChoice === 1 || choices[userChoice]-compChoice === -2){
-                alert("You've won!")
+                numWins += 1;
+                alert("You've won " + numWins + " consecutive times!");
             }
             else if (choices[userChoice] === compChoice){
                 alert("Tie!")
             }
             else {
                 alert("Sorry, " + choicesArr[compChoice] + " beats " + userChoice)
+                numWins = 0;
             }
 
             // Ask if the user would like to play again
@@ -50,7 +52,7 @@
                 break;
             }
         }
-        while(True);
+        while(true);
 
     </script>
 </body>
