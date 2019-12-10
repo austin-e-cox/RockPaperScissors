@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Rock Paper Scissors</title>
+</head>
+<body>
+    <script>
+        // setup
+        var choicesArr = ["rock","paper","scissors"];
+        var choices = {};
+        choices["rock"] = 0;
+        choices["paper"] = 1;
+        choices["scissors"] = 2;
+        
+        // Game main loop
+        alert("Let's play Rock Paper Scissors!");
+        do{
+            // Ensure valid user choice loop
+            do{
+                var userChoice = prompt("User choice (rock, paper, or scissors)");
+                userChoice = userChoice.toLowerCase();
+                if (userChoice in choices)
+                    break
+                else
+                    alert("Unknown play, please choose rock, paper, or scissors");
+                }
+            while(true);
+            
+            // computer choose a random number
+            compChoice = Math.floor(Math.random() * Math.floor(3));
+            alert("Computer chooses: " + choicesArr[compChoice]);
+
+            // Check who won
+            if (choices[userChoice]-compChoice === 1 || choices[userChoice]-compChoice === -2){
+                alert("You've won!")
+            }
+            else if (choices[userChoice] === compChoice){
+                alert("Tie!")
+            }
+            else {
+                alert("Sorry, " + choicesArr[compChoice] + " beats " + userChoice)
+            }
+
+            // Ask if the user would like to play again
+            var playAgain = confirm("Play again?");
+            if (!playAgain){
+                break;
+            }
+        }
+        while(True);
+
+    </script>
+</body>
+</html>
